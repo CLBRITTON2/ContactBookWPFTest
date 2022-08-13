@@ -1,0 +1,36 @@
+﻿<Window x:Class="ContactBook.Views.ContactList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ContactBook"
+        mc:Ignorable="d"
+        Title="ContactList" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Global User Interface"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="FontFamily" Value="Global User Interface"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <TextBox x:Name="SearchBox" HorizontalAlignment="Left" Margin="77,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" Height="25" TextChanged="SearchBox_TextChanged"/>
+        <Button Content="DELETE" HorizontalAlignment="Right" Margin="0,20,20,0" VerticalAlignment="Top" Width="180" Height="25" Click="DeleteContact"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,20,0,0" Text="SEARCH:" FontWeight="Bold" Padding="6"/>
+
+        <!-- Data grid code-->
+        <DataGrid x:Name="AddressBookGrid" Margin="20,60,20,20" IsReadOnly="True" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="FirstName" Header="First Name" Width="100" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Last Name" Width="100" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Mobile Phone" Width="150" Binding="{Binding MobilePhoneNumber}"/>
+                <DataGridTextColumn Header="Work Phone" Width="150" Binding="{Binding WorkPhoneNumber}"/>
+                <DataGridTextColumn Header="Address" Width="260" Binding="{Binding Address}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
